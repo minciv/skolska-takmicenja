@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+# @Аутор   : minciv
+# @Фајл     : pyproject.toml
+# @Верзија  : 0.0.01.
+# @Програм  : VS Code
+# @Опис     : Фајл са захтевима за Такмичења
+[project]
+name = "takmicenja"
+version = "0.0.1"
+description = "Python GUI апликација за вођење евиденције о ученицима, такмичењима, менторима, освојеним наградама, бодовима, у Основној Школи."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.7.0",
+    "openpyxl>=3.1.2",
+    "pandas>=2.0.0",
+    "pillow>=10.0.0",
+    "tk>=0.1.0",
+]
