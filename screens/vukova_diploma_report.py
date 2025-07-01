@@ -1,10 +1,12 @@
 # -*- encoding: utf-8 -*-
-# @Аутор   : minciv
-# @Фајл     : vukova_diploma_report.py
-# @Верзија  : 0.1.01.
-# @Програм  : Windsurf
-# @Опис     : Извештај за Вукову диплому
-# @Датум   : 14.05.2025.
+# @Аутор      : minciv
+# @e-mail     : minciv@protonmail.com
+# @Web        : https://github.com/minciv
+# @Фајл       : vukova_diploma_report.py
+# @Верзија    : 0.1.05.
+# @Програм    : Windsurf
+# @Опис       : Извештај за Вукову диплому
+# @Датум      : 01.07.2025.
 
 from tkinter import ttk, messagebox, StringVar
 from tkinter.constants import *
@@ -20,8 +22,24 @@ class VukovaDiplomaReportFrame(ttk.Frame):
     def setup_ui(self):
         main_frame = ttk.Frame(self, padding=10)
         main_frame.pack(fill=BOTH, expand=YES)
+        
+        # Наслов
         ttk.Label(main_frame, text="Извештај: Вукова диплома", font=("Helvetica", 16, "bold")).pack(pady=10)
-        self.result_frame = ttk.LabelFrame(main_frame, text="Кандидати", padding=10)
+        
+        # Информације о критеријумима
+        criteria_frame = ttk.LabelFrame(main_frame, text="Критеријуми за Вукову диплому (Праvilnik 2022)", padding=10)
+        criteria_frame.pack(fill=X, expand=NO, pady=(0, 10))
+        
+        ttk.Label(criteria_frame, text="• Одличан успех (5.00) из свих обавезних предмета од 2. до 8. разреда", 
+                 justify='left').pack(anchor='w', pady=1)
+        ttk.Label(criteria_frame, text="• Примерно владање у свакој школској години", 
+                 justify='left').pack(anchor='w', pady=1)
+        ttk.Label(criteria_frame, text="• Поседовање најмање једне Доситејеве дипломе", 
+                 justify='left').pack(anchor='w', pady=1)
+        ttk.Label(criteria_frame, text="• Одлуку доноси Наставничко веће на предлог Одељенског већа", 
+                 justify='left', font=('Helvetica', 8, 'italic')).pack(anchor='w', pady=1)
+        
+        self.result_frame = ttk.LabelFrame(main_frame, text="Кандидати за Вукову диплому", padding=10)
         self.result_frame.pack(fill=BOTH, expand=YES)
 
     def load_candidates(self):

@@ -1,10 +1,12 @@
 # -*- encoding: utf-8 -*-
-# @Аутор   : minciv
-# @Фајл     : takmicenja.py
-# @Верзија  : 0.1.01.
-# @Програм  : Windsurf
-# @Опис     : Главни модул пројекта
-# @Датум   : 14.05.2025.
+# @Аутор      : minciv
+# @e-mail     : minciv@protonmail.com
+# @Web        : https://github.com/minciv
+# @Фајл       : takmicenja.py
+# @Верзија    : 0.1.05.
+# @Програм    : Windsurf
+# @Опис       : Главни фајл за покретање програма
+# @Датум      : 01.07.2025.
 
 from tkinter import Tk, Menu, messagebox, filedialog
 from tkinter import ttk
@@ -186,9 +188,11 @@ class SkolskaTakmicenjaApp:
         self.menu_bar.add_cascade(label="Налог", menu=self.account_menu)
         self.account_menu.add_command(label="Одјава", command=self.logout)
         
-        # Мени “Помоћ”
+        # Мени "Помоћ"
         self.help_menu = Menu(self.menu_bar, tearoff=0)
         self.menu_bar.add_cascade(label="Помоћ", menu=self.help_menu)
+        self.help_menu.add_command(label="Критеријуми диплома", command=self.show_criteria_dialog)
+        self.help_menu.add_separator()
         self.help_menu.add_command(label="О апликацији", command=lambda: self.show_about_dialog())
         
         # Почетно сакривамо мени док се корисник не пријави
@@ -250,10 +254,24 @@ class SkolskaTakmicenjaApp:
         instructions.pack(fill='both', expand=True, pady=20)
         
         ttk.Label(instructions, text="• Користите мени изнад за навигацију између екрана", justify='left').pack(anchor='w', pady=2)
-        ttk.Label(instructions, text="• Ученици: Управљање подацима о ученицима", justify='left').pack(anchor='w', pady=2)
+        ttk.Label(instructions, text="• Ученици: Управљање подацима о ученицима и њиховим резултатима", justify='left').pack(anchor='w', pady=2)
         ttk.Label(instructions, text="• Такмичења: Дефинисање типова такмичења и нивоа", justify='left').pack(anchor='w', pady=2)
         ttk.Label(instructions, text="• Успеси: Евиденција успеха ученика на такмичењима", justify='left').pack(anchor='w', pady=2)
-        ttk.Label(instructions, text="• Извештаји: Генерисање извештаја за Вукове дипломе и ђака генерације", justify='left').pack(anchor='w', pady=2)
+        ttk.Label(instructions, text="• Извештаји: Генерисање извештаја за Вукове и Доситејеве дипломе", justify='left').pack(anchor='w', pady=2)
+        
+        # Додавање информација о дипломама
+        diplomas_info = ttk.LabelFrame(welcome_frame, text="Информације о дипломама", padding=10)
+        diplomas_info.pack(fill='both', expand=True, pady=10)
+        
+        ttk.Label(diplomas_info, text="ВУКОВА ДИПЛОМА - Критеријуми:", font=('Helvetica', 10, 'bold'), justify='left').pack(anchor='w', pady=2)
+        ttk.Label(diplomas_info, text="• Одличне оцене (5.00) из свих предмета од 2. до 8. разреда", justify='left').pack(anchor='w', padx=20, pady=1)
+        ttk.Label(diplomas_info, text="• Примерно владање у свакој школској години", justify='left').pack(anchor='w', padx=20, pady=1)
+        ttk.Label(diplomas_info, text="• Поседовање најмање једне Доситејеве дипломе", justify='left').pack(anchor='w', padx=20, pady=1)
+        
+        ttk.Label(diplomas_info, text="ДОСИТЕЈЕВА ДИПЛОМА - Критеријуми:", font=('Helvetica', 10, 'bold'), justify='left').pack(anchor='w', pady=(10,2))
+        ttk.Label(diplomas_info, text="• Најмање врло добар општи успех и примерно владање", justify='left').pack(anchor='w', padx=20, pady=1)
+        ttk.Label(diplomas_info, text="• Једна од прве три награде на такмичењу (општинско до међународно)", justify='left').pack(anchor='w', padx=20, pady=1)
+        ttk.Label(diplomas_info, text="• Или одличан успех из предмета ако нема такмичења", justify='left').pack(anchor='w', padx=20, pady=1)
         
         self.current_frame = welcome_frame
     
@@ -298,6 +316,48 @@ class SkolskaTakmicenjaApp:
             self.current_frame.destroy()
         self.current_frame = UsersFrame(self.main_container, self)
         self.current_frame.pack(fill='both', expand=True)
+    
+    def show_criteria_dialog(self):
+        """Приказује брзи преглед критеријума за дипломе"""
+        import tkinter as tk
+        criteria_win = tk.Toplevel(self.root)
+        criteria_win.title("Критеријуми за дипломе")
+        criteria_win.geometry("600x500")
+        
+        # Креирање табова
+        notebook = ttk.Notebook(criteria_win)
+        notebook.pack(fill='both', expand=True, padx=10, pady=10)
+        
+        # Таб за Вукову диплому
+        vuk_frame = ttk.Frame(notebook, padding=10)
+        notebook.add(vuk_frame, text="Вукова диплома")
+        
+        ttk.Label(vuk_frame, text="Критеријуми за Вукову диплому", font=('Helvetica', 12, 'bold')).pack(pady=5)
+        ttk.Label(vuk_frame, text="• Одличне оцене (5.00) из свих обавезних предмета од 2. до 8. разреда", justify='left').pack(anchor='w', pady=2)
+        ttk.Label(vuk_frame, text="• Примерно владање у свакој школској години", justify='left').pack(anchor='w', pady=2)
+        ttk.Label(vuk_frame, text="• Поседовање најмање једне Доситејеве дипломе", justify='left').pack(anchor='w', pady=2)
+        ttk.Label(vuk_frame, text="• Одлуку доноси Наставничко веће на предлог Одељенског већа", justify='left', font=('Helvetica', 9, 'italic')).pack(anchor='w', pady=2)
+        
+        # Таб за Доситејеву диплому
+        dositej_frame = ttk.Frame(notebook, padding=10)
+        notebook.add(dositej_frame, text="Доситејева диплома")
+        
+        ttk.Label(dositej_frame, text="Критеријуми за Доситејеву диплому", font=('Helvetica', 12, 'bold')).pack(pady=5)
+        ttk.Label(dositej_frame, text="• Најмање врло добар општи успех и примерно владање", justify='left').pack(anchor='w', pady=2)
+        ttk.Label(dositej_frame, text="• Освајање једне од прве три награде на такмичењу", justify='left').pack(anchor='w', pady=2)
+        ttk.Label(dositej_frame, text="  (општинско, градско, окружно, републичко, међународно)", justify='left').pack(anchor='w', padx=20, pady=1)
+        ttk.Label(dositej_frame, text="• Алтернативно: Одличан успех из предмета ако нема такмичења", justify='left').pack(anchor='w', pady=2)
+        ttk.Label(dositej_frame, text="• Одлуку доноси Наставничко веће на предлог Одељенског већа", justify='left', font=('Helvetica', 9, 'italic')).pack(anchor='w', pady=2)
+        
+        # Дугме за детаљније информације
+        button_frame = ttk.Frame(criteria_win)
+        button_frame.pack(pady=10)
+        ttk.Button(button_frame, text="Детаљније (Извештаји)", command=lambda: [criteria_win.destroy(), self.show_reports_frame()]).pack(side='left', padx=5)
+        ttk.Button(button_frame, text="Затвори", command=criteria_win.destroy).pack(side='left', padx=5)
+        
+        criteria_win.transient(self.root)
+        criteria_win.grab_set()
+        criteria_win.focus_set()
     
     def show_about_dialog(self):
         """Приказује прозор са текстом из Pravilnik.txt"""

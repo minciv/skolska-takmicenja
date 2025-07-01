@@ -1,10 +1,12 @@
 # -*- encoding: utf-8 -*-
-# @Аутор   : minciv
-# @Фајл     : students_frame.py
-# @Верзија  : 0.1.01.
-# @Програм  : Windsurf
-# @Опис     : Екран за управљање ученицима
-# @Датум   : 14.05.2025.
+# @Аутор      : minciv
+# @e-mail     : minciv@protonmail.com
+# @Web        : https://github.com/minciv
+# @Фајл       : students_frame.py
+# @Верзија    : 0.1.05.
+# @Програм    : Windsurf
+# @Опис       : Екран за управљање ученицима
+# @Датум      : 01.07.2025.
 
 from tkinter import ttk, messagebox, StringVar, IntVar
 from tkinter.constants import *

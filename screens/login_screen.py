@@ -1,10 +1,12 @@
 # -*- encoding: utf-8 -*-
-# @Аутор   : minciv
-# @Фајл     : login_screen.py
-# @Верзија  : 0.1.01.
-# @Програм  : Windsurf
-# @Опис     : Екран за пријаву корисника у апликацију
-# @Датум   : 14.05.2025.
+# @Аутор      : minciv
+# @e-mail     : minciv@protonmail.com
+# @Web        : https://github.com/minciv
+# @Фајл       : login_screen.py
+# @Верзија    : 0.1.05.
+# @Програм    : Windsurf
+# @Опис       : Екран за пријаву корисника у апликацију
+# @Датум      : 01.07.2025.
 
 # Увоз потребних модула
 import tkinter as tk

@@ -1,10 +1,12 @@
 # -*- encoding: utf-8 -*-
-# @Аутор   : minciv
-# @Фајл     : best_student_report.py
-# @Верзија  : 0.1.01.
-# @Програм  : Windsurf
-# @Опис     : Изештај за ђака генерације
-# @Датум   : 14.05.2025.
+# @Аутор      : minciv
+# @e-mail     : minciv@protonmail.com
+# @Web        : https://github.com/minciv
+# @Фајл       : best_student_report.py
+# @Верзија    : 0.1.05.
+# @Програм    : Windsurf
+# @Опис       : Изештај за ђака генерације
+# @Датум      : 01.07.2025.
 
 from tkinter import ttk, messagebox, StringVar, IntVar, Canvas
 from tkinter.constants import *

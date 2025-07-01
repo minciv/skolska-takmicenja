@@ -1,10 +1,12 @@
 # -*- encoding: utf-8 -*-
-# @Аутор   : minciv
-# @Фајл     : scoring_rules.py
-# @Верзија  : 0.1.01.
-# @Програм  : Windsurf
-# @Опис     : Правила бодовања за ђака генерације
-# @Датум   : 14.05.2025.
+# @Аутор      : minciv
+# @e-mail     : minciv@protonmail.com
+# @Web        : https://github.com/minciv
+# @Фајл       : scoring_rules.py
+# @Верзија    : 0.1.05.
+# @Програм    : Windsurf
+# @Опис       : Правила бодовања за ђака генерације
+# @Датум      : 01.07.2025.
 
 from tkinter import ttk, messagebox, StringVar, DoubleVar
 from tkinter.constants import *

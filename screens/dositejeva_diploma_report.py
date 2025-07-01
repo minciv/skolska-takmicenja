@@ -1,10 +1,12 @@
 # -*- encoding: utf-8 -*-
-# @Аутор   : minciv
-# @Фајл     : dositejeva_diploma_report.py
-# @Верзија  : 0.1.01.
-# @Програм  : Windsurf
-# @Опис     : Извештај за Доситејеву диплому
-# @Датум   : 14.05.2025.
+# @Аутор      : minciv
+# @e-mail     : minciv@protonmail.com
+# @Web        : https://github.com/minciv
+# @Фајл       : dositejeva_diploma_report.py
+# @Верзија    : 0.1.05.
+# @Програм    : Windsurf
+# @Опис       : Извештај за Доситејеву диплому
+# @Датум      : 01.07.2025.
 
 from tkinter import ttk, messagebox, StringVar
 from tkinter.constants import *
@@ -20,7 +22,22 @@ class DositejevaDiplomaReportFrame(ttk.Frame):
     def setup_ui(self):
         main_frame = ttk.Frame(self, padding=10)
         main_frame.pack(fill=BOTH, expand=YES)
+        
+        # Наслов
         ttk.Label(main_frame, text="Извештај: Доситејева диплома", font=("Helvetica", 16, "bold")).pack(pady=10)
+        
+        # Информације о критеријумима
+        criteria_frame = ttk.LabelFrame(main_frame, text="Критеријуми за Досitejeву диплому (Праvilник 2022)", padding=10)
+        criteria_frame.pack(fill=X, expand=NO, pady=(0, 10))
+        
+        ttk.Label(criteria_frame, text="• Најмање врло добар општи успех и примерно владање на крају свaке школске године", 
+                 justify='left').pack(anchor='w', pady=1)
+        ttk.Label(criteria_frame, text="• Освајање једне од прве три награде на такмичењу (општинско до међународно ниво)", 
+                 justify='left').pack(anchor='w', pady=1)
+        ttk.Label(criteria_frame, text="• Алтернативно: Одличан успех из предмета ако нема организованих такмичења", 
+                 justify='left').pack(anchor='w', pady=1)
+        ttk.Label(criteria_frame, text="• Одлуку доноси Наставничко веће на предлог Одељенског већа", 
+                 justify='left', font=('Helvetica', 8, 'italic')).pack(anchor='w', pady=1)
         # Форма за унос кандидата
         form_frame = ttk.LabelFrame(main_frame, text="Додај кандидата", padding=10)
         form_frame.pack(fill=X, expand=NO, pady=(0, 10))
